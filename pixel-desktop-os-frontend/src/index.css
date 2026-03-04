@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 50% 7%;
+    --foreground: 0 0% 100%;
+
+    --card: 233 50% 10%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 233 50% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 155 100% 50%;
+    --primary-foreground: 230 50% 7%;
+
+    --secondary: 233 30% 18%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 233 30% 15%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 155 100% 50%;
+    --accent-foreground: 230 50% 7%;
+
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 86%;
+    --input: 233 30% 20%;
+    --ring: 155 100% 50%;
+
+    --radius: 0px;
+
+    --pixel-border: #dcdcdc;
+    --pixel-bg: #111122;
+    --pixel-shadow: #080816;
+    --pixel-titlebar: #333355;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'VT323', monospace;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M0 0 L0 14 L4 10 L7 15 L9 14 L6 9 L11 9 Z' fill='white' stroke='black' stroke-width='1'/%3E%3C/svg%3E"), auto;
+    overflow: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Press Start 2P', cursive;
+  }
+}
+
+@layer base {
+  .theme-dark-green {
+    /* uses the default :root values defined above */
+  }
+
+  .theme-purple {
+    --background: 260 40% 10%;
+    --card: 260 40% 13%;
+    --popover: 260 40% 13%;
+    --primary: 280 100% 65%;
+    --primary-foreground: 260 40% 10%;
+    --secondary: 260 30% 22%;
+    --muted: 260 30% 18%;
+    --accent: 280 100% 65%;
+    --accent-foreground: 260 40% 10%;
+  }
+
+  .theme-amber {
+    --background: 30 45% 9%;
+    --card: 30 45% 12%;
+    --popover: 30 45% 12%;
+    --primary: 40 100% 60%;
+    --primary-foreground: 30 45% 9%;
+    --secondary: 30 35% 22%;
+    --muted: 30 35% 18%;
+    --accent: 40 100% 60%;
+    --accent-foreground: 30 45% 9%;
+  }
+
+  .desktop-bg-grid {
+    background-image: linear-gradient(#1f2933 1px, transparent 1px),
+      linear-gradient(90deg, #1f2933 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  body.os-font-terminal {
+    font-family: 'VT323', monospace;
+  }
+
+  body.os-font-pixel {
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  body.os-font-small {
+    font-size: 13px;
+  }
+
+  body.os-font-medium {
+    font-size: 15px;
+  }
+
+  body.os-font-large {
+    font-size: 17px;
+  }
+}
+
+@layer components {
+  .pixel-border {
+    border: 2px solid var(--pixel-border);
+    box-shadow: 
+      inset 1px 1px 0 rgba(255,255,255,0.2),
+      inset -1px -1px 0 rgba(0,0,0,0.4),
+      2px 2px 0 var(--pixel-shadow);
+  }
+
+  .pixel-window {
+    border: 2px solid var(--pixel-border);
+    background: var(--pixel-bg);
+    box-shadow: 
+      inset 1px 1px 0 rgba(255,255,255,0.15),
+      inset -1px -1px 0 rgba(0,0,0,0.5),
+      4px 4px 0 var(--pixel-shadow);
+  }
+
+  .pixel-titlebar {
+    background: var(--pixel-titlebar);
+    border-bottom: 2px solid var(--pixel-border);
+    padding: 4px 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .pixel-btn {
+    border: 2px solid var(--pixel-border);
+    background: var(--pixel-bg);
+    box-shadow: 
+      inset 1px 1px 0 rgba(255,255,255,0.2),
+      inset -1px -1px 0 rgba(0,0,0,0.4);
+    padding: 2px 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.1s;
+  }
+
+  .pixel-btn:hover {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .pixel-btn:active {
+    box-shadow: 
+      inset -1px -1px 0 rgba(255,255,255,0.2),
+      inset 1px 1px 0 rgba(0,0,0,0.4);
+  }
+
+  .scanline {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.08) 2px,
+      rgba(0, 0, 0, 0.08) 4px
+    );
+    pointer-events: none;
+  }
+
+  .desktop-icon {
+    @apply flex flex-col items-center gap-1 p-2 cursor-pointer select-none;
+    width: 80px;
+    text-align: center;
+    transition: all 0.1s;
+  }
+
+  .desktop-icon:hover {
+    background: rgba(0, 255, 156, 0.1);
+    outline: 1px dashed hsl(var(--primary));
+  }
+
+  .desktop-icon:hover .icon-sprite {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 4px hsl(var(--primary)));
+  }
+
+  .crt-flicker {
+    animation: crt-flicker 0.15s infinite;
+  }
+
+  @keyframes crt-flicker {
+    0% { opacity: 0.97; }
+    50% { opacity: 1; }
+    100% { opacity: 0.98; }
+  }
+
+  @keyframes boot-text {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .blink-cursor::after {
+    content: '█';
+    animation: blink-cursor 1s step-end infinite;
+    color: hsl(var(--primary));
+  }
+
+  .matrix-bg {
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(0,255,156,0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(0,255,156,0.02) 0%, transparent 50%);
+  }
+}
