@@ -23,6 +23,7 @@ public class ExperienceController {
 
     @GetMapping
     public ResponseEntity<List<ExperienceDocument>> getAllExperience() {
+        //Get All
         List<ExperienceDocument> experiences = experienceService.getAllExperiences();
         return ResponseEntity.ok(experiences);
     }
